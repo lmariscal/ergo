@@ -1,7 +1,4 @@
-#pragma region head
-
-#ifndef ERGO_TYPES_HH
-#define ERGO_TYPES_HH
+#pragma once
 
 #include <cstdint>
 #include <signal.h>
@@ -34,7 +31,3 @@ namespace ergo {
 #endif
 
 } // namespace ergo
-
-#endif // ERGO_TYPES_HH
-
-#pragma endregion // head

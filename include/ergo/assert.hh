@@ -1,7 +1,4 @@
-#pragma region head
-
-#ifndef ERGO_ASSERT_HH
-#define ERGO_ASSERT_HH
+#pragma once
 
 #if defined(ERGO_DEBUG)
 
@@ -51,7 +48,3 @@ inline void ERGO_LOG_ERROR(First &&first, Rest &&...rest) {
 #define ERGO_ASSERT(condition)
 
 #endif // ERGO_DEBUG
-
-#endif // ERGO_ASSERT_HH
-
-#pragma endregion // head

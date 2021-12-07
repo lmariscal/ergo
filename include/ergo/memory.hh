@@ -1,20 +1,10 @@
-#pragma region head
+#pragma once
 
-#ifndef ERGO_MEMORY_HH
-#define ERGO_MEMORY_HH
+namespace ergo {
 
-namespace ergo { } // namespace ergo
+  template<typename T>
+  class Ref {
+    // TODO
+  };
 
-#endif // ERGO_MEMORY_HH
-
-#pragma endregion // head
-
-#pragma region body
-
-#ifdef ERGO_IMPLEMENTATION
-
-namespace ergo { } // namespace ergo
-
-#endif
-
-#pragma endregion // body
+} // namespace ergo
