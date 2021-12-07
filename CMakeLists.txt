@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.21)
 
 project(ergo
   VERSION 0.1.0
@@ -16,7 +16,7 @@ set(ERGO_INSTALL_DIR "${ERGO_MAIN_INSTALL_DIR}/${CMAKE_BUILD_TYPE}")
 set(ERGO_INCLUDE_DIR "include/ergo")
 
 file(GLOB_RECURSE ERGO_SOURCES
-  ${CMAKE_SOURCE_DIR}/src/*.cc
+  ${PROJECT_SOURCE_DIR}/src/*.cc
 )
 
 add_library(ergo ${ERGO_SOURCES})
@@ -30,19 +30,17 @@ target_include_directories(ergo PUBLIC
   $<INSTALL_INTERFACE:${ERGO_INCLUDE_DIR}>
 )
 
+target_sources(ergo PRIVATE ${ERGO_SOURCES})
+
 # Source Files for IDEs
 
 file(GLOB_RECURSE ERGO_HEADERS
-  ${CMAKE_SOURCE_DIR}/include/**/*.hh
+  ${PROJECT_SOURCE_DIR}/include/**/*.hh
 )
 
-list(APPEND ERGO_SOURCES ${ERGO_HEADERS})
-
-target_sources(ergo PRIVATE ${ERGO_SOURCES})
+target_sources(ergo PRIVATE ${ERGO_HEADERS})
 
 # Install
-
-# https://www.foonathan.net/2016/03/cmake-install/
 
 install(TARGETS ergo EXPORT ergo DESTINATION ${ERGO_INSTALL_DIR})
 install(FILES ${ERGO_HEADERS} DESTINATION ${ERGO_INCLUDE_DIR})
@@ -51,6 +49,6 @@ install(EXPORT ergo DESTINATION "${ERGO_INSTALL_DIR}")
 
 # Tests
 
-if(BUILD_TESTS AND CMAKE_BUILD_TYPE MATCHES Debug)
+if(PROJECT_IS_TOP_LEVEL AND BUILD_TESTS)
   add_subdirectory(test)
 endif()

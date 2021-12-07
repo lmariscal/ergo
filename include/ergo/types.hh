@@ -43,13 +43,13 @@ namespace ergo {
 #define ERGO_DEBUG_BREAK() __debugbreak()
 #endif
 
-#define ERGO_ASSERT(validate, ...)                              \
-  {                                                             \
-    if (!validate) {                                            \
-      log::error("{}:{}:{}", __FILE__, __FUNCTION__, __LINE__); \
-      log::error(__VA_ARGS__);                                  \
-      ERGO_DEBUG_BREAK();                                       \
-    }                                                           \
+#define ERGO_ASSERT(validate, ...)                                                           \
+  {                                                                                          \
+    if (!validate) {                                                                         \
+      std::cerr << __FILE__ << ":" << __FUNCTION__ << ":" << __LINE__ << ": " << __VA_ARGS__ \
+                << '\n';                                                                     \
+      ERGO_DEBUG_BREAK();                                                                    \
+    }                                                                                        \
   }
 
 #else
