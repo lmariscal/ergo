@@ -35,29 +35,6 @@ namespace ergo {
 
 } // namespace ergo
 
-#if defined(ERGO_DEBUG)
-
-#if defined(__linux__) || defined(__APPLE__)
-#define ERGO_DEBUG_BREAK() raise(SIGTRAP)
-#elif defined(_WIN32)
-#define ERGO_DEBUG_BREAK() __debugbreak()
-#endif
-
-#define ERGO_ASSERT(validate, ...)                                                           \
-  {                                                                                          \
-    if (!validate) {                                                                         \
-      std::cerr << __FILE__ << ":" << __FUNCTION__ << ":" << __LINE__ << ": " << __VA_ARGS__ \
-                << '\n';                                                                     \
-      ERGO_DEBUG_BREAK();                                                                    \
-    }                                                                                        \
-  }
-
-#else
-
-#define ERGO_ASSERT(validate, ...)
-
-#endif // ERGO_DEBUG
-
 #endif // ERGO_TYPES_HH
 
 #pragma endregion // head

@@ -1,3 +1,4 @@
+#include <ergo/assert.hh>
 #include <ergo/types.hh>
 #include <iostream>
 
@@ -25,6 +26,12 @@ i32 main() {
   } else {
     std::cout << "x != y\n";
   }
+
+  ERGO_ASSERT(x == y);
+  ERGO_ASSERT(x != y);
+
+  ERGO_ASSERT_MESSAGE(x == y, "x == y");
+  ERGO_ASSERT_MESSAGE(x != y, "x != y");
 
   return 0;
 }

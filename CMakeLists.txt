@@ -21,6 +21,12 @@ file(GLOB_RECURSE ERGO_SOURCES
 
 add_library(ergo ${ERGO_SOURCES})
 
+set_target_properties(ergo PROPERTIES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
+  CXX_EXTENSIONS NO
+)
+
 if(CMAKE_BUILD_TYPE MATCHES Debug)
   target_compile_definitions(ergo PUBLIC ERGO_DEBUG=1)
 endif()
