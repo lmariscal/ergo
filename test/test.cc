@@ -1,4 +1,5 @@
 #include <ergo/assert.hh>
+#include <ergo/path.hh>
 #include <ergo/types.hh>
 #include <iostream>
 
@@ -28,10 +29,11 @@ i32 main() {
   }
 
   ERGO_ASSERT(x == y);
-  ERGO_ASSERT(x != y);
 
   ERGO_ASSERT_MESSAGE(x == y, "x == y");
-  ERGO_ASSERT_MESSAGE(x != y, "x != y");
+
+  std::string path = ergo::get_binary_path();
+  std::cout << "path: " << path << "\n";
 
   return 0;
 }
