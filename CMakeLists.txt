@@ -1,17 +1,15 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.12)
 
-project(ergo CXX C)
+project(ergo
+  VERSION 0.1.0
+  DESCRIPTION "Ergo is a C++ util library which provides a set of useful types, functions, and macros for C++ development."
+)
 
 if(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Build type" FORCE)
 endif()
 
 option(BUILD_TESTS "Build tests" ON)
-
-set(ERGO_VERSION_MAJOR 0 CACHE STRING "major version" FORCE)
-set(ERGO_VERSION_MINOR 0 CACHE STRING "minor version" FORCE)
-set(ERGO_VERSION_PATCH 0 CACHE STRING "patch version" FORCE)
-set(ERGO_VERSION ${ERGO_VERSION_MAJOR}.${ERGO_VERSION_MINOR}.${ERGO_VERSION_PATCH} CACHE STRING "version" FORCE)
 
 set(ERGO_MAIN_INSTALL_DIR "lib/ergo")
 set(ERGO_INSTALL_DIR "${ERGO_MAIN_INSTALL_DIR}/${CMAKE_BUILD_TYPE}")
