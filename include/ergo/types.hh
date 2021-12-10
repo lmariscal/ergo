@@ -20,6 +20,7 @@ namespace ergo {
   using f64 = double;
 
   using uchar = unsigned char;
+  using byte = std::uint8_t;
 
   using b8 = std::uint8_t;
   using b16 = std::uint16_t;
